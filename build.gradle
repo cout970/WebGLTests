@@ -1,0 +1,27 @@
+group 'com.cout970'
+version '1.0-SNAPSHOT'
+
+import org.gradle.internal.os.OperatingSystem
+
+task runElectron(type: Exec) {
+    workingDir './build'
+    switch (OperatingSystem.current()) {
+        case OperatingSystem.WINDOWS:
+            commandLine './build/node_modules/electron/dist/electron.exe', 'run'
+            break
+        case OperatingSystem.MAC_OS:
+        case OperatingSystem.LINUX:
+            commandLine './build/node_modules/electron/dist/electron', 'run'
+            break
+    }
+}
+
+task buildAndRun(){
+    dependsOn ':backend:build'
+    dependsOn ':frontend:build'
+    dependsOn ':runElectron'
+}
+
+task recompileFrontend(){
+    dependsOn ':frontend:build'
+}
