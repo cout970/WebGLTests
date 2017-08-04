@@ -14,7 +14,7 @@ buildscript {
     }
     dependencies {
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
-        classpath "org.jetbrains.kotlin:kotlin-frontend-plugin:0.0.19"
+        classpath "org.jetbrains.kotlin:kotlin-frontend-plugin:0.0.20"
     }
 }
 
@@ -28,24 +28,19 @@ repositories {
 
 dependencies {
     compile "org.jetbrains.kotlin:kotlin-stdlib-js:$kotlin_version"
-    compile "org.jetbrains.kotlinx:kotlinx-html-js:${html_version}"
+    compile "org.jetbrains.kotlinx:kotlinx-html-js:$html_version"
 }
 
 kotlinFrontend {
     sourceMaps = false
 
     npm {
-        replaceVersion("kotlin-js-library", kotlin_version)
-        replaceVersion("kotlinx-html", html_version) // (optional)
-        replaceVersion("kotlinx-html-shared", kotlin_version) // (optional
-
         dependency("electron")
-        dependency("datauri") // used to load pages from strings (optional)
         dependency("react")
         dependency("react-dom")
-//        dependency("react-router")// (optional)
-//        dependency("jquery")// (optional)
-//        dependency("react-markdown")// (optional)
+        dependency("pug")
+        dependency("less")
+        dependency("electron-interceptor")
     }
 }
 

@@ -18,6 +18,7 @@ fun main(args: Array<String>) {
     console.log("Reloading")
     enableAutoReload()
 
+
     ReactDOM.render(container = document.getElementById("base")) {
         div {
             Button {}
