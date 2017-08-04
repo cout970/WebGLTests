@@ -7,11 +7,11 @@ task runElectron(type: Exec) {
     workingDir './build'
     switch (OperatingSystem.current()) {
         case OperatingSystem.WINDOWS:
-            commandLine './build/node_modules/electron/dist/electron.exe', 'run'
+            commandLine './build/node_modules/electron/dist/electron.exe', 'run/backend.js'
             break
         case OperatingSystem.MAC_OS:
         case OperatingSystem.LINUX:
-            commandLine './build/node_modules/electron/dist/electron', 'run'
+            commandLine './build/node_modules/electron/dist/electron', 'run/backend.js'
             break
     }
 }

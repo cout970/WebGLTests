@@ -29,11 +29,10 @@ object WebGlRenderer {
         }
         vertex_buffer = createVBO()
 
-        // 20 ms = 1/60fps
-        window.setInterval(WebGlRenderer::loop, 20)
+        window.requestAnimationFrame(WebGlRenderer::loop)
     }
 
-    fun loop() {
+    fun loop(delta: Double) {
 
         gl.clearColor(0.0f, 0.0f, 0.0f, 1.0f)
         gl.enable(GL.DEPTH_TEST)
@@ -44,6 +43,7 @@ object WebGlRenderer {
 
         printErrors()
         renderVBO(shaderProgram, vertex_buffer)
+        window.requestAnimationFrame(WebGlRenderer::loop)
     }
 
     fun printErrors() {

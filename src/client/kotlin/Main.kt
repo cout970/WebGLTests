@@ -15,7 +15,6 @@ private val fileSystem = runtime.wrappers.require("fs")
 
 fun main(args: Array<String>) {
 
-    console.log("Reloading")
     enableAutoReload()
 
 
@@ -32,7 +31,7 @@ fun main(args: Array<String>) {
 private var lastModified: Int = 0
 
 fun enableAutoReload(){
-    fileSystem.stat("./run/frontend.js") { err, stat ->
+    fileSystem.stat("./run/frontend.js") { _, stat ->
         if (stat != undefined) {
             lastModified = -stat.mtime.unsafeCast<Int>()
             window.setInterval(::reloadWhenNecessary, 500)
@@ -44,7 +43,7 @@ fun enableAutoReload(){
 }
 
 fun reloadWhenNecessary() {
-    fileSystem.stat("./run/frontend.js") { a, stats ->
+    fileSystem.stat("./run/frontend.js") { _, stats ->
         val hash = -stats.mtime.unsafeCast<Int>()
         if (lastModified != hash) {
             window.location.reload()

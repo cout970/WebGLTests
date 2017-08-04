@@ -12,7 +12,6 @@ private val fileDir: String get() = js("__dirname").toString()
 // Reference to the actual window
 var mainWindow: BrowserWindow? = null
 
-
 fun main(args: Array<String>) {
 
     app.onEvent("ready", ::onCreate)

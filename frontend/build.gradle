@@ -13,10 +13,12 @@ buildscript {
     }
     dependencies {
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
+        classpath "org.jetbrains.kotlin:kotlin-frontend-plugin:0.0.20"
     }
 }
 
 apply plugin: 'kotlin2js'
+apply plugin: 'org.jetbrains.kotlin.frontend'
 
 repositories {
     jcenter()
@@ -34,6 +36,21 @@ compileKotlin2Js {
     kotlinOptions.sourceMap = true
     kotlinOptions.moduleKind = 'commonjs'
     kotlinOptions.main = "call"
+}
+
+kotlinFrontend {
+    sourceMaps = false
+
+    npm {
+        replaceVersion("main", "backend.js")
+
+        dependency("electron")
+        dependency("react")
+        dependency("react-dom")
+        dependency("pug")
+        dependency("less")
+        dependency("electron-interceptor")
+    }
 }
 
 sourceSets {
