@@ -28,7 +28,7 @@ repositories {
 
 dependencies {
     compile "org.jetbrains.kotlin:kotlin-stdlib-js:$kotlin_version"
-    compile "org.jetbrains.kotlinx:kotlinx-html:$html_version"
+    compile "org.jetbrains.kotlinx:kotlinx-html-js:${html_version}"
 }
 
 kotlinFrontend {
@@ -41,8 +41,8 @@ kotlinFrontend {
 
         dependency("electron")
         dependency("datauri") // used to load pages from strings (optional)
-//        dependency("react") // (optional)
-//        dependency("react-dom")// (optional)
+        dependency("react")
+        dependency("react-dom")
 //        dependency("react-router")// (optional)
 //        dependency("jquery")// (optional)
 //        dependency("react-markdown")// (optional)

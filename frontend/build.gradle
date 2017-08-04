@@ -25,7 +25,7 @@ repositories {
 
 dependencies {
     compile "org.jetbrains.kotlin:kotlin-stdlib-js:$kotlin_version"
-    compile "org.jetbrains.kotlinx:kotlinx-html:$html_version"
+    compile "org.jetbrains.kotlinx:kotlinx-html-js:${html_version}"
 }
 
 compileKotlin2Js {

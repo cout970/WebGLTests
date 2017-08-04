@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Hello World!</title>
+    <style>
+        .button {
+            outline: solid 1px black;
+            text-align: center;
+            user-select: none;
+            width: 50px;
+            color: white;
+        }
+
+        .on {
+            background-color: green;
+        }
+
+        .off{
+            background-color: red;
+        }
+    </style>
+</head>
+<body>
+<div id="base"></div>
+<!--<div style="height: 100vh; width: 100vw">-->
+    <!--<div style="margin-left: auto; margin-right: auto; width: 640px; height: 480px;">-->
+        <!--<canvas id="glcanvas" width="640" height="480" style="border: solid 1px black;">-->
+            <!--Tu navegador parece no soportar el elemento HTML5 <code>&lt;canvas&gt;</code>.-->
+        <!--</canvas>-->
+    <!--</div>-->
+<!--</div>-->
+
+<script>
+    const kotlin = require("kotlin");
+    require("./frontend.js");
+</script>
+</body>
+</html>
